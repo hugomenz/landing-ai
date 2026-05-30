@@ -1,11 +1,10 @@
-import { Component, signal } from '@angular/core';
+import { Component } from '@angular/core';
+import { AppShellComponent } from './layout/app-shell/app-shell.component';
 
 @Component({
   selector: 'app-root',
-  imports: [],
-  templateUrl: './app.html',
+  imports: [AppShellComponent],
+  template: '<app-shell />',
   styleUrl: './app.css',
 })
-export class App {
-  protected readonly title = signal('landing-ai');
-}
+export class App {}

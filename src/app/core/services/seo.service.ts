@@ -27,6 +27,42 @@ export class SeoService {
     this.meta.updateTag({ property: 'og:url', content: seo.canonicalUrl });
     this.meta.updateTag({ name: 'twitter:card', content: seo.twitterCard });
     this.updateCanonical(seo.canonicalUrl);
+    this.updateLocaleAlternates();
+    this.updateStructuredData();
+  }
+
+  private updateLocaleAlternates(): void {
+    Object.entries(this.config.seo.localeAlternatives).forEach(([language, href]) => {
+      let link = this.document.querySelector<HTMLLinkElement>(`link[rel=\"alternate\"][hreflang=\"${language}\"]`);
+      if (!link) {
+        link = this.document.createElement('link');
+        link.rel = 'alternate';
+        link.hreflang = language;
+        this.document.head.appendChild(link);
+      }
+      link.href = href;
+    });
+  }
+
+  private updateStructuredData(): void {
+    const id = 'structured-data-person';
+    let script = this.document.getElementById(id) as HTMLScriptElement | null;
+    if (!script) {
+      script = this.document.createElement('script');
+      script.id = id;
+      script.type = 'application/ld+json';
+      this.document.head.appendChild(script);
+    }
+    script.textContent = JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'Person',
+      name: this.config.personalInfo.name,
+      jobTitle: this.i18n.localize(this.config.personalInfo.role),
+      url: this.config.global.baseUrl,
+      email: this.config.personalInfo.email,
+      knowsAbout: this.config.seo.keywords,
+      address: { '@type': 'PostalAddress', addressCountry: this.config.personalInfo.country },
+    });
   }
 
   private updateCanonical(url: string): void {
