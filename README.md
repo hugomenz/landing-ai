@@ -34,7 +34,13 @@ To build the project run:
 ng build
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+This will compile your project and store the build artifacts in the `docs/` directory so the site can be published with GitHub Pages. By default, the production build optimizes your application for performance and speed and uses the `/landing-ai/` base path.
+
+To regenerate the GitHub Pages bundle explicitly, run:
+
+```bash
+npm run build:pages
+```
 
 ## Running unit tests
 
