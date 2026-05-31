@@ -1,7 +1,8 @@
 import { SiteConfig } from '../models/site-config.model';
+import { bookingUrl, contactEmail } from './links.config';
+import { themeConfig } from './theme.config';
 
-const bookingUrl = 'https://calendly.com/hugomenz/ai-automation-consultation';
-const email = 'hello@example.com';
+const email = contactEmail;
 
 export const siteConfig: SiteConfig = {
   global: {
@@ -15,9 +16,9 @@ export const siteConfig: SiteConfig = {
     baseUrl: 'https://hugomenz.com',
     logoText: 'HM AI',
     faviconPath: '/favicon.ico',
-    defaultTheme: 'dark',
-    availableThemes: ['dark', 'light'],
-    themeToggleEnabled: true,
+    defaultTheme: themeConfig.defaultTheme,
+    availableThemes: themeConfig.availableThemes,
+    themeToggleEnabled: themeConfig.toggleEnabled,
     featureFlags: { blog: false, caseStudies: true, cms: false, contactForm: true },
     analyticsEnabled: false,
     environmentLabel: 'production',
