@@ -1,3 +1,3 @@
 import { Component } from '@angular/core';
-@Component({ selector: 'app-badge', template: `<span class="badge"><ng-content /></span>` })
+@Component({ selector: 'app-badge', templateUrl: './badge.component.html' })
 export class BadgeComponent {}

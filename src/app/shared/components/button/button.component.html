@@ -1,0 +1,1 @@
+<a class="btn" [class.btn-secondary]="variant === 'secondary'" [class.btn-tertiary]="variant === 'tertiary'" [href]="href" [attr.target]="external ? '_blank' : null" [attr.rel]="external ? 'noopener noreferrer' : null" (click)="track()"><ng-content /></a>

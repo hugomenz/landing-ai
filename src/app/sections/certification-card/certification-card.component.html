@@ -1,0 +1,1 @@
+<app-card><div class="card-top"><app-badge>{{ certification.status }}</app-badge>@if (certification.featured) {<app-badge>{{ i18n.t('common.featured') }}</app-badge>}</div><h3>{{ certification.name }}</h3><p class="muted">{{ certification.provider }} · {{ certification.category }}</p><p>{{ i18n.localize(certification.description) }}</p></app-card>

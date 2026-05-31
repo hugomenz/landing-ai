@@ -7,6 +7,6 @@ import { ButtonComponent } from '../../shared/components/button/button.component
 @Component({
   selector: 'app-hero',
   imports: [BadgeComponent, ButtonComponent],
-  template: `<section id="home" class="hero section"><div class="container hero-grid"><div><p class="eyebrow">{{ i18n.localize(hero.eyebrow) }}</p><h1>{{ i18n.localize(hero.headline) }}</h1><p class="hero-subtitle">{{ i18n.localize(hero.subheadline) }}</p><p class="trust-line">{{ i18n.localize(hero.trustStatement) }}</p><div class="actions"><app-button [href]="hero.primaryCta.href" [trackingId]="hero.primaryCta.trackingId" [external]="true">{{ i18n.localize(hero.primaryCta.label) }}</app-button><app-button [href]="hero.secondaryCta.href" variant="secondary" [trackingId]="hero.secondaryCta.trackingId">{{ i18n.localize(hero.secondaryCta.label) }}</app-button><app-button [href]="hero.tertiaryCta.href" variant="tertiary" [trackingId]="hero.tertiaryCta.trackingId">{{ i18n.localize(hero.tertiaryCta.label) }}</app-button></div><small>{{ i18n.localize(hero.smallNote) }}</small></div><aside class="hero-panel card"><app-badge>{{ i18n.localize(hero.availabilityBadge) }}</app-badge><p>{{ i18n.localize(hero.clientSegmentText) }}</p><div class="badge-list">@for (badge of hero.heroBadges; track $index) {<app-badge>{{ i18n.localize(badge) }}</app-badge>}</div></aside></div></section>`,
+  templateUrl: './hero.component.html',
 })
 export class HeroComponent { readonly hero = siteConfig.hero; readonly i18n = inject(I18nService); }

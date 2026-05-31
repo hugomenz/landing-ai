@@ -9,7 +9,7 @@ import { ThemeToggleComponent } from '../theme-toggle/theme-toggle.component';
 @Component({
   selector: 'app-header',
   imports: [ButtonComponent, LanguageSwitcherComponent, ThemeToggleComponent],
-  template: `<header class="site-header"><div class="container header-inner"><a class="logo" href="#home" aria-label="Home">{{ config.global.logoText }}</a><nav aria-label="Main navigation">@for (item of nav; track item.id) {<a [href]="'#' + item.anchor">{{ i18n.localize(item.label) }}</a>}</nav><div class="header-actions"><app-language-switcher /><app-theme-toggle /><app-button [href]="booking?.url || '#contact'" [external]="true" trackingId="cta_header_booking">{{ i18n.localize(config.hero.primaryCta.label) }}</app-button></div></div></header>`,
+  templateUrl: './header.component.html',
 })
 export class HeaderComponent {
   readonly config = siteConfig;

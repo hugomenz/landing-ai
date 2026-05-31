@@ -1,4 +1,5 @@
 import { Component, effect, inject } from '@angular/core';
+import { AdminPanelComponent } from '../../admin/admin-panel/admin-panel.component';
 import { SeoService } from '../../core/services/seo.service';
 import { ThemeService } from '../../core/services/theme.service';
 import { I18nService } from '../../core/services/i18n.service';
@@ -10,6 +11,7 @@ import { FAQComponent } from '../../sections/faq/faq.component';
 import { FinalCTAComponent } from '../../sections/final-cta/final-cta.component';
 import { HeroComponent } from '../../sections/hero/hero.component';
 import { ProcessStepsComponent } from '../../sections/process-steps/process-steps.component';
+import { PortfolioSectionComponent } from '../../sections/portfolio-section/portfolio-section.component';
 import { ProjectsGridComponent } from '../../sections/projects-grid/projects-grid.component';
 import { ServicesGridComponent } from '../../sections/services-grid/services-grid.component';
 import { TrustSignalsComponent } from '../../sections/trust-signals/trust-signals.component';
@@ -18,8 +20,8 @@ import { HeaderComponent } from '../header/header.component';
 
 @Component({
   selector: 'app-shell',
-  imports: [HeaderComponent, HeroComponent, TrustSignalsComponent, ServicesGridComponent, ProjectsGridComponent, CertificationsGridComponent, ProcessStepsComponent, AudienceSectionComponent, AboutSectionComponent, FAQComponent, ContactSectionComponent, FinalCTAComponent, FooterComponent],
-  template: `<app-header /><main><app-hero /><app-trust-signals /><app-services-grid /><app-projects-grid /><app-certifications-grid /><app-process-steps /><app-audience-section /><app-about-section /><app-faq /><app-contact-section /><app-final-cta /></main><app-footer />`,
+  imports: [HeaderComponent, HeroComponent, TrustSignalsComponent, ServicesGridComponent, ProjectsGridComponent, PortfolioSectionComponent, CertificationsGridComponent, ProcessStepsComponent, AudienceSectionComponent, AboutSectionComponent, FAQComponent, ContactSectionComponent, FinalCTAComponent, FooterComponent, AdminPanelComponent],
+  templateUrl: './app-shell.component.html',
 })
 export class AppShellComponent {
   private readonly seo = inject(SeoService);

@@ -4,7 +4,7 @@ import { AppShellComponent } from './layout/app-shell/app-shell.component';
 @Component({
   selector: 'app-root',
   imports: [AppShellComponent],
-  template: '<app-shell />',
-  styleUrl: './app.css',
+  templateUrl: './app.html',
+  styleUrl: './app.scss',
 })
 export class App {}

@@ -1,0 +1,46 @@
+@if (auth.panelVisible()) {
+  <aside class="admin-panel" aria-label="Private admin panel">
+    <button type="button" class="admin-close" (click)="auth.panelVisible.set(false)" aria-label="Close admin panel">×</button>
+    <h2>{{ texts.lockedTitle }}</h2>
+    <p class="muted">{{ texts.lockedDescription }}</p>
+
+    @if (!auth.isAdmin) {
+      <button type="button" class="btn" (click)="login()">Entrar con Google</button>
+      @if (!auth.config.enabled) { <p class="muted">{{ texts.firebaseDisabled }}</p> }
+      @if (auth.error()) { <p class="form-error">{{ auth.error() }}</p> }
+    } @else {
+      <p class="muted">Sesión privada: {{ auth.user()?.email }}</p>
+      <div class="admin-forms">
+        <form [formGroup]="projectForm" (ngSubmit)="addProject()">
+          <h3>Nuevo proyecto</h3>
+          <input formControlName="title" placeholder="Título" />
+          <textarea formControlName="problem" placeholder="Problema"></textarea>
+          <textarea formControlName="solution" placeholder="Solución"></textarea>
+          <input formControlName="tools" placeholder="Tools separados por coma" />
+          <input formControlName="businessValue" placeholder="Valor de negocio" />
+          <input formControlName="targetClient" placeholder="Cliente objetivo" />
+          <select formControlName="status"><option value="planned">planned</option><option value="in-progress">in-progress</option><option value="completed">completed</option></select>
+          <input formControlName="image" placeholder="URL imagen opcional" />
+          <button class="btn" type="submit" [disabled]="projectForm.invalid">Agregar proyecto</button>
+        </form>
+
+        <form [formGroup]="reviewForm" (ngSubmit)="addReview()">
+          <h3>Nueva review</h3>
+          <input formControlName="author" placeholder="Autor" />
+          <input formControlName="role" placeholder="Rol / empresa" />
+          <textarea formControlName="quote" placeholder="Review"></textarea>
+          <input formControlName="avatar" placeholder="Avatar opcional" />
+          <button class="btn" type="submit" [disabled]="reviewForm.invalid">Agregar review</button>
+        </form>
+
+        <div class="photo-upload">
+          <h3>Subir foto al portfolio</h3>
+          <input [(ngModel)]="photoTitle" placeholder="Título de la foto" />
+          <input type="file" accept="image/*" (change)="uploadPhoto($event)" />
+        </div>
+      </div>
+      <button type="button" class="btn btn-tertiary" (click)="content.resetLocalEdits()">Reset local</button>
+      <button type="button" class="btn btn-secondary" (click)="logout()">Salir</button>
+    }
+  </aside>
+}

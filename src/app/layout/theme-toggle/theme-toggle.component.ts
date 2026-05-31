@@ -4,7 +4,7 @@ import { ThemeService } from '../../core/services/theme.service';
 
 @Component({
   selector: 'app-theme-toggle',
-  template: `@if (enabled) {<button type="button" class="theme-toggle" (click)="theme.toggleTheme()" aria-label="Toggle theme">{{ theme.currentTheme() }}</button>}`,
+  templateUrl: './theme-toggle.component.html',
 })
 export class ThemeToggleComponent {
   readonly enabled = siteConfig.global.themeToggleEnabled;

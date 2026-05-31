@@ -3,5 +3,5 @@ import { siteConfig } from '../../core/config/site.config';
 import { I18nService } from '../../core/services/i18n.service';
 import { ButtonComponent } from '../../shared/components/button/button.component';
 
-@Component({ selector: 'app-final-cta', imports: [ButtonComponent], template: `<section class="section final-cta"><div class="container cta-panel"><h2>{{ i18n.t('sections.finalCta.title') }}</h2><p>{{ i18n.t('sections.finalCta.description') }}</p><div class="actions"><app-button [href]="config.hero.primaryCta.href" [external]="true" trackingId="cta_final_booking">{{ i18n.t('sections.finalCta.primary') }}</app-button><app-button [href]="config.landingConversion.leadMagnetDownloadLink" variant="secondary" trackingId="cta_final_download">{{ i18n.t('sections.finalCta.secondary') }}</app-button></div></div></section>` })
+@Component({ selector: 'app-final-cta', imports: [ButtonComponent], templateUrl: './final-cta.component.html' })
 export class FinalCTAComponent { readonly i18n = inject(I18nService); readonly config = siteConfig; }

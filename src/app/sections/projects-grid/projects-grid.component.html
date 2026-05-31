@@ -1,0 +1,10 @@
+<section id="projects" class="section">
+  <div class="container">
+    <app-section-header [eyebrow]="i18n.t('sections.projects.eyebrow')" [title]="i18n.t('sections.projects.title')" [description]="i18n.t('sections.projects.description')" />
+    <div class="grid cards-3">
+      @for (project of projects(); track project.id) {
+        <app-project-card [project]="project" />
+      }
+    </div>
+  </div>
+</section>

@@ -6,7 +6,7 @@ import { TrackingService } from '../../core/services/tracking.service';
 
 @Component({
   selector: 'app-language-switcher',
-  template: `<div class="language-switcher" aria-label="Language switcher">@for (language of languages; track language.code) {<button type="button" [class.active]="language.code === i18n.currentLanguage()" (click)="switch(language.code)">{{ language.code.toUpperCase() }}</button>}</div>`,
+  templateUrl: './language-switcher.component.html',
 })
 export class LanguageSwitcherComponent {
   readonly languages = siteConfig.global.availableLanguages;

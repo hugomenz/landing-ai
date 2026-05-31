@@ -1,0 +1,21 @@
+<section id="portfolio" class="section portfolio">
+  <div class="container">
+    <app-section-header eyebrow="Portfolio" title="Fotos y reviews" description="Una zona editable para enseñar imágenes de trabajos, prototipos y testimonios." />
+    <div class="portfolio-grid">
+      @for (photo of content.portfolioPhotos(); track photo.id) {
+        <figure class="portfolio-photo">
+          <img [src]="photo.src" [alt]="photo.alt" />
+          <figcaption>{{ photo.title }}</figcaption>
+        </figure>
+      }
+    </div>
+    <div class="grid cards-3 reviews-grid">
+      @for (review of content.reviews(); track review.id) {
+        <app-card>
+          <p>“{{ i18n.localize(review.quote) }}”</p>
+          <p class="muted"><strong>{{ review.author }}</strong> · {{ review.role }}</p>
+        </app-card>
+      }
+    </div>
+  </div>
+</section>

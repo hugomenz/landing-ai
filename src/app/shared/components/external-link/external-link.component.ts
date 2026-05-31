@@ -5,7 +5,7 @@ import { TrackingService } from '../../../core/services/tracking.service';
 
 @Component({
   selector: 'app-external-link',
-  template: `<a [href]="link.url" [attr.target]="linkService.target(link)" [attr.rel]="linkService.rel(link)" [attr.aria-label]="link.ariaLabel" (click)="track()">{{ link.label }}</a>`,
+  templateUrl: './external-link.component.html',
 })
 export class ExternalLinkComponent {
   @Input({ required: true }) link!: SiteLink;
