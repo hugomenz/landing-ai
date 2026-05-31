@@ -17,6 +17,11 @@
           "builder": "@angular/build:application",
           "options": {
             "browser": "src/main.ts",
+            "deleteOutputPath": false,
+            "outputPath": {
+              "base": "docs",
+              "browser": ""
+            },
             "tsConfig": "tsconfig.app.json",
             "assets": [
               {
@@ -40,6 +45,7 @@
                   "maximumError": "8kB"
                 }
               ],
+              "baseHref": "/landing-ai/",
               "outputHashing": "all"
             },
             "development": {
