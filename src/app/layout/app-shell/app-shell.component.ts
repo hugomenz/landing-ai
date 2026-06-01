@@ -11,7 +11,6 @@ import { FAQComponent } from '../../sections/faq/faq.component';
 import { FinalCTAComponent } from '../../sections/final-cta/final-cta.component';
 import { HeroComponent } from '../../sections/hero/hero.component';
 import { ProcessStepsComponent } from '../../sections/process-steps/process-steps.component';
-import { PortfolioSectionComponent } from '../../sections/portfolio-section/portfolio-section.component';
 import { ProjectsGridComponent } from '../../sections/projects-grid/projects-grid.component';
 import { ServicesGridComponent } from '../../sections/services-grid/services-grid.component';
 import { TrustSignalsComponent } from '../../sections/trust-signals/trust-signals.component';
@@ -20,7 +19,7 @@ import { HeaderComponent } from '../header/header.component';
 
 @Component({
   selector: 'app-shell',
-  imports: [HeaderComponent, HeroComponent, TrustSignalsComponent, ServicesGridComponent, ProjectsGridComponent, PortfolioSectionComponent, CertificationsGridComponent, ProcessStepsComponent, AudienceSectionComponent, AboutSectionComponent, FAQComponent, ContactSectionComponent, FinalCTAComponent, FooterComponent, AdminPanelComponent],
+  imports: [HeaderComponent, HeroComponent, TrustSignalsComponent, ServicesGridComponent, ProjectsGridComponent, CertificationsGridComponent, ProcessStepsComponent, AudienceSectionComponent, AboutSectionComponent, FAQComponent, ContactSectionComponent, FinalCTAComponent, FooterComponent, AdminPanelComponent],
   templateUrl: './app-shell.component.html',
 })
 export class AppShellComponent {

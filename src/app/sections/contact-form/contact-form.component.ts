@@ -16,7 +16,7 @@ export class ContactFormComponent {
   readonly i18n = inject(I18nService);
   readonly fields = siteConfig.contact.formFields;
   readonly form = this.fb.nonNullable.group({
-    name: ['', Validators.required], email: ['', [Validators.required, Validators.email]], company: [''], role: [''], message: [''], automationGoal: ['', Validators.required], preferredLanguage: ['de' as LanguageCode, Validators.required], consent: [false, Validators.requiredTrue],
+    name: ['', Validators.required], email: ['', [Validators.required, Validators.email]], company: [''], role: [''], message: ['', Validators.required], automationGoal: [''], preferredLanguage: ['en' as LanguageCode, Validators.required], consent: [false, Validators.requiredTrue],
   });
 
   label(id: string): string { return this.i18n.localize(this.fields.find((field) => field.id === id)?.label ?? { de: id, en: id, es: id }); }

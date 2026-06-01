@@ -6,7 +6,7 @@ const email = contactEmail;
 
 export const siteConfig: SiteConfig = {
   global: {
-    defaultLanguage: 'de',
+    defaultLanguage: 'en',
     availableLanguages: [
       { code: 'de', label: 'German', nativeLabel: 'Deutsch', locale: 'de-DE' },
       { code: 'en', label: 'English', nativeLabel: 'English', locale: 'en-US' },
@@ -96,8 +96,8 @@ export const siteConfig: SiteConfig = {
   navigation: [
     { id: 'home', label: { de: 'Home', en: 'Home', es: 'Inicio' }, anchor: 'home', visible: true, order: 1, trackingId: 'nav_home' },
     { id: 'services', label: { de: 'Leistungen', en: 'Services', es: 'Servicios' }, anchor: 'services', visible: true, order: 2, trackingId: 'nav_services' },
-    { id: 'projects', label: { de: 'Projekte', en: 'Projects', es: 'Proyectos' }, anchor: 'projects', visible: true, order: 3, trackingId: 'nav_projects' },
-    { id: 'certifications', label: { de: 'Zertifikate', en: 'Certifications', es: 'Certificaciones' }, anchor: 'certifications', visible: true, order: 4, trackingId: 'nav_certifications' },
+    { id: 'projects', label: { de: 'Projekte', en: 'Projects', es: 'Proyectos' }, anchor: 'projects', visible: false, order: 3, trackingId: 'nav_projects' },
+    { id: 'certifications', label: { de: 'Zertifikate', en: 'Certifications', es: 'Certificaciones' }, anchor: 'certifications', visible: false, order: 4, trackingId: 'nav_certifications' },
     { id: 'process', label: { de: 'Prozess', en: 'Process', es: 'Proceso' }, anchor: 'process', visible: true, order: 5, trackingId: 'nav_process' },
     { id: 'about', label: { de: 'Über mich', en: 'About', es: 'Sobre mí' }, anchor: 'about', visible: true, order: 6, trackingId: 'nav_about' },
     { id: 'contact', label: { de: 'Kontakt', en: 'Contact', es: 'Contacto' }, anchor: 'contact', visible: true, order: 7, trackingId: 'nav_contact' },
@@ -114,14 +114,14 @@ export const siteConfig: SiteConfig = {
       { de: 'manuelle Arbeit reduzieren', en: 'reduce manual work', es: 'reducir trabajo manual' },
     ],
     subheadline: {
-      de: 'Ich helfe Unternehmen dabei, wiederkehrende Prozesse mit n8n, Make, Microsoft Power Automate, GitHub Copilot und AI Agents zu analysieren, zu automatisieren und verständlich zu dokumentieren.',
-      en: 'I help companies analyze, automate, and document recurring business processes using n8n, Make, Microsoft Power Automate, GitHub Copilot, and AI agents.',
-      es: 'Ayudo a empresas a analizar, automatizar y documentar procesos repetitivos usando n8n, Make, Microsoft Power Automate, GitHub Copilot y agentes de IA.',
+      de: 'Ich helfe Teams, repetitive Arbeit mit klaren AI-Automationen zu reduzieren.',
+      en: 'I help teams reduce repetitive work with practical AI automation.',
+      es: 'Ayudo a equipos a reducir trabajo repetitivo con automatización IA práctica.',
     },
     trustStatement: { de: 'Praktisch, nachvollziehbar und passend für B2B-Teams.', en: 'Practical, understandable, and suitable for B2B teams.', es: 'Práctico, claro y adecuado para equipos B2B.' },
     primaryCta: { label: { de: 'Erstgespräch buchen', en: 'Book a consultation', es: 'Reservar una llamada' }, href: bookingUrl, trackingId: 'cta_hero_booking', style: 'primary' },
-    secondaryCta: { label: { de: 'Leistungen ansehen', en: 'View services', es: 'Ver servicios' }, href: '#services', trackingId: 'cta_hero_services', style: 'secondary' },
-    tertiaryCta: { label: { de: 'Profil herunterladen', en: 'Download profile', es: 'Descargar perfil' }, href: '/downloads/hugo-menz-ai-automation-profile.pdf', trackingId: 'cta_hero_profile', style: 'tertiary' },
+    secondaryCta: { label: { de: 'Profil herunterladen', en: 'Download profile', es: 'Descargar perfil' }, href: '/downloads/hugo-menz-ai-automation-profile.pdf', trackingId: 'cta_hero_profile', style: 'secondary' },
+    tertiaryCta: { label: { de: 'Leistungen ansehen', en: 'View services', es: 'Ver servicios' }, href: '#services', trackingId: 'cta_hero_services', style: 'tertiary' },
     smallNote: { de: 'Kostenloses Kennenlernen, klare nächste Schritte.', en: 'Free intro call, clear next steps.', es: 'Primera llamada sin coste, próximos pasos claros.' },
     heroBadges: [
       { de: 'n8n · Make · Power Automate', en: 'n8n · Make · Power Automate', es: 'n8n · Make · Power Automate' },
@@ -261,7 +261,7 @@ export const siteConfig: SiteConfig = {
       { id: 'role', label: { de: 'Rolle', en: 'Role', es: 'Rol' }, type: 'text', required: false },
       { id: 'automationGoal', label: { de: 'Was möchten Sie automatisieren?', en: 'What do you want to automate?', es: '¿Qué quiere automatizar?' }, type: 'textarea', required: true },
       { id: 'preferredLanguage', label: { de: 'Bevorzugte Sprache', en: 'Preferred language', es: 'Idioma preferido' }, type: 'select', required: true, options: [{ de: 'Deutsch', en: 'German', es: 'Alemán' }, { de: 'Englisch', en: 'English', es: 'Inglés' }, { de: 'Spanisch', en: 'Spanish', es: 'Español' }] },
-      { id: 'message', label: { de: 'Nachricht', en: 'Message', es: 'Mensaje' }, type: 'textarea', required: false },
+      { id: 'message', label: { de: 'Nachricht', en: 'Message', es: 'Mensaje' }, type: 'textarea', required: true },
       { id: 'consent', label: { de: 'Ich stimme zu, dass meine Angaben zur Kontaktaufnahme verarbeitet werden.', en: 'I agree that my details may be processed for contact purposes.', es: 'Acepto que mis datos se procesen para contacto.' }, type: 'checkbox', required: true },
     ],
   },

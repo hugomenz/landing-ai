@@ -1,1 +1,12 @@
-<form class="contact-form" [formGroup]="form" (ngSubmit)="submit()"><div class="form-grid"><label>{{ label('name') }}<input formControlName="name" /></label><label>{{ label('email') }}<input type="email" formControlName="email" /></label><label>{{ label('company') }}<input formControlName="company" /></label><label>{{ label('role') }}<input formControlName="role" /></label><label class="full">{{ label('automationGoal') }}<textarea formControlName="automationGoal"></textarea></label><label>{{ label('preferredLanguage') }}<select formControlName="preferredLanguage"><option value="de">Deutsch</option><option value="en">English</option><option value="es">Español</option></select></label><label class="full">{{ label('message') }}<textarea formControlName="message"></textarea></label><label class="checkbox full"><input type="checkbox" formControlName="consent" /> {{ label('consent') }}</label></div><button class="btn" type="submit" [disabled]="form.invalid">{{ i18n.t('common.send') }}</button><p class="muted">{{ i18n.t('common.formNotice') }}</p></form>
+<form class="contact-form" [formGroup]="form" (ngSubmit)="submit()">
+  <div class="form-grid">
+    <label>{{ label('name') }}<input formControlName="name" autocomplete="name" [attr.aria-invalid]="form.controls.name.invalid && form.controls.name.touched" /></label>
+    <label>{{ label('email') }}<input type="email" formControlName="email" autocomplete="email" [attr.aria-invalid]="form.controls.email.invalid && form.controls.email.touched" /></label>
+    <label class="full">{{ label('message') }}<textarea formControlName="message" [attr.aria-invalid]="form.controls.message.invalid && form.controls.message.touched"></textarea></label>
+    <label>{{ label('preferredLanguage') }}<select formControlName="preferredLanguage"><option value="de">Deutsch</option><option value="en">English</option><option value="es">Español</option></select></label>
+    <label class="checkbox full"><input type="checkbox" formControlName="consent" /> <span>{{ label('consent') }}</span></label>
+  </div>
+  @if (form.invalid && form.touched) {<p class="form-error" role="alert">{{ i18n.t('common.required') }}</p>}
+  <button class="btn" type="submit" [disabled]="form.invalid">{{ i18n.t('common.send') }}</button>
+  <p class="muted">{{ i18n.t('common.formNotice') }}</p>
+</form>

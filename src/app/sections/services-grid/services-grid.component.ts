@@ -5,4 +5,4 @@ import { SectionHeaderComponent } from '../../shared/components/section-header/s
 import { ServiceCardComponent } from '../service-card/service-card.component';
 
 @Component({ selector: 'app-services-grid', imports: [SectionHeaderComponent, ServiceCardComponent], templateUrl: './services-grid.component.html' })
-export class ServicesGridComponent { readonly i18n = inject(I18nService); readonly services = siteConfig.services.filter((item) => item.visible).sort((a, b) => a.order - b.order); }
+export class ServicesGridComponent { readonly i18n = inject(I18nService); readonly services = siteConfig.services.filter((item) => item.visible).sort((a, b) => a.order - b.order).slice(0, 4); }

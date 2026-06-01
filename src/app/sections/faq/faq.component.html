@@ -1,1 +1,14 @@
-<section class="section"><div class="container narrow"><app-section-header [eyebrow]="i18n.t('sections.faq.eyebrow')" [title]="i18n.t('sections.faq.title')" [description]="i18n.t('sections.faq.description')" />@for (item of faq; track item.id) {<details class="faq-item"><summary>{{ i18n.localize(item.question) }}</summary><p>{{ i18n.localize(item.answer) }}</p></details>}</div></section>
+<section class="section">
+  <div class="container narrow">
+    <app-section-header [eyebrow]="i18n.t('sections.faq.eyebrow')" [title]="i18n.t('sections.faq.title')" [description]="i18n.t('sections.faq.description')" />
+    @for (item of faq; track item.id) {
+      <article class="faq-item">
+        <button class="faq-question" type="button" [attr.aria-expanded]="openItem() === item.id" [attr.aria-controls]="'faq-' + item.id" (click)="toggle(item.id)">
+          <span>{{ i18n.localize(item.question) }}</span>
+          <span aria-hidden="true">{{ openItem() === item.id ? '−' : '+' }}</span>
+        </button>
+        @if (openItem() === item.id) {<p [id]="'faq-' + item.id">{{ i18n.localize(item.answer) }}</p>}
+      </article>
+    }
+  </div>
+</section>

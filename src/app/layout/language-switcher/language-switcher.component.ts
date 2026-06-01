@@ -10,6 +10,7 @@ import { TrackingService } from '../../core/services/tracking.service';
 })
 export class LanguageSwitcherComponent {
   readonly languages = siteConfig.global.availableLanguages;
+  readonly flags: Record<LanguageCode, string> = { de: '🇩🇪', en: '🇬🇧', es: '🇪🇸' };
   readonly i18n = inject(I18nService);
   private readonly tracking = inject(TrackingService);
   switch(language: LanguageCode): void {
